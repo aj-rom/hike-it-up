@@ -1,0 +1,30 @@
+<% if logged_in? %>
+
+<div class="container">
+  <header>
+    <b><%= @trail.name %></b>
+  </header>
+    <h2>Add Images</h2>
+    <div class="content">
+      <form action="/trails/:id/new_image" method="post">
+        <input type="hidden" name="img[trail_id]" value="<%= @trail.id %>">
+        <label for="url">Image Link:</label>
+
+        <input name="img[url]" id="url" type="url" pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png|.gif)" required>
+
+        <br>
+        <label for="caption">Caption:</label>
+        <input type="text" id="caption" name="img[caption]" alt="Image Caption">
+        <br>
+        <input type="submit" value="Add Image">
+      </form>
+      <br>
+    </div>
+</div>
+
+<% else %>
+  <div id="flash" class="error">
+    <p>You must be logged in to do this!</p>
+    <a href="/login"></a>
+  </div>
+<% end %>
