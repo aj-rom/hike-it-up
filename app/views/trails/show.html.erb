@@ -1,21 +1,41 @@
-<h1 style="text-align: center"><%= @trail.name %></h1>
-<div>
-  <b>Overall Rating:</b>
-  <%= @reviews.sum(:rating) / @review_count %>
-</div>
-<div>
-  <b>Hours:</b>
-  <%= @trail.hours %>
-</div>
-<div>
-  <b>Address:</b>
-  <%= @trail.address %>
-</div>
-<div>
-  <b>Description:</b>
-  <p><%= @trail.description %></p>
-</div>
+<div class="wrapper">
+  <h1><%= @trail.name %></h1>
+  <div class="sidebar">
+      <h3>Details</h3>
+      <ul>
+        <li><b>Overall Rating:</b> <%= @reviews.sum(:rating).to_f / @review_count.to_f %></li>
+        <li><b>Hours:</b> <%= @trail.hours %></li>
+        <li><b>Address:</b> <%= @trail.address %></li>
+        <li><b>Description:</b> <%= @trail.description %></li>
+        <% if logged_in? %>
+        <li><a href="/trails/<%= @trail.id %>/edit">Edit this Trail</a></li>
+        <% end %>
+      </ul>
+  </div>
+  <div class="slideshow-container">
+    <% images = @trail.trail_images %>
+    <% images.each.with_index(1) do |t, idx| %>
+    <div class="mySlides fade">
+      <div class="numbertext"><%= idx  /  images.size %></div>
+      <img src="<%= t.url %>" style="width:100%">
+      <div class="text">Caption Text</div>
+    </div>
+    <% end %>
 
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+  </div>
+  <br>
+
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
+
+
+  </div>
 
 <h2><%= @review_count %> Review<%= "s" unless @review_count == 1 %></h2>
 <table class="reviews">
@@ -34,8 +54,8 @@
 </table>
 <br>
 <% if logged_in? %>
-  <a href="/trails/<%= @trail.id %>/edit">Edit this Trail</a>
   <a href="/trails/<%= @trail.id %>/review">Leave a Review</a>
 <% else %>
   <p><a href="/login">Log In</a> to leave a review</p>
 <% end %>
+</div>
