@@ -27,6 +27,7 @@ class ApplicationController < Sinatra::Base
       redirect "/users/#{user.username}"
     else
       # rack flash error message
+      flash[:error] = "Credentials did not match our records!"
       redirect '/login'
     end
   end
@@ -36,14 +37,21 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/signup" do
-
-    user = User.new(params[:user])
-    user.status = "Just joined the party!"
-
-    if user.save
-      redirect '/login'
+    if User.find_by(name: params[:user][:username])
+      flash[:error] = "An account with that username already exists."
+      redirect '/signup'
     else
-      redirect '/failure'
+      user = User.new(params[:user])
+      user.status = "Just joined the party!"
+
+      if params[:user][:password] != params[:user][:password_confirmation]
+        flash[:error] = "Your passwords must match!"
+        redirect '/signup'
+      else
+        user.save
+        flash[:notice] = "You have successfully created an account."
+        redirect '/login'
+      end
     end
   end
 
@@ -51,7 +59,7 @@ class ApplicationController < Sinatra::Base
     session.clear
     flash[:notice] = "You have successfully logged out."
 
-    redirect "/"
+    redirect "/login"
   end
 
   helpers do
