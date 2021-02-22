@@ -1,23 +1,50 @@
-<div id='flash' class='error'>
-  <%= flash[:error] %>
+<nav>
+  <a href="/">
+    <div>Hike It Up</div>
+  </a>
+  <a href="/trails">
+    <div>Trails</div>
+  </a>
+  <a href="/users">
+    <div>Users</div>
+  </a>
+  <% if !logged_in? %>
+    <a href="/login" class="Active">
+      <div>Login</div>
+    </a>
+    <a href="/signup">
+      <div>Sign Up</div>
+    </a>
+  <% else %>
+    <a href="/logout">
+      <div>Log Out</div>
+    </a>
+  <% end %>
+</nav>
+
+<div class="container">
+  <br>
+  <h2>Login to your account</h2>
+
+  <form action="/login" method="post">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+
+    <br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <br>
+
+    <div id='flash' class='error'>
+      <%= flash[:error] %>
+    </div>
+
+    <div id='flash' class="notice">
+      <%= flash[:notice] %>
+    </div>
+    <input type="submit" value="Login">
+  </form>
 </div>
 
-<div id='flash' class="notice">
-  <%= flash[:notice] %>
-</div>
-
-<form action="/login" method="post">
-  <label for="username">Username: </label>
-  <input type="text" id="username" name="username" required>
-
-  <br>
-
-  <label for="password">Password:</label>
-  <input type="password" id="password" name="password" required>
-
-  <br>
-
-  <input type="submit" value="Login">
-</form>
-<br>
-<a href="/signup">Create an Account</a>

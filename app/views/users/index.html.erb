@@ -8,6 +8,18 @@
   <a href="/users" class="active">
     <div>Users</div>
   </a>
+  <% if !logged_in? %>
+    <a href="/login">
+      <div>Login</div>
+    </a>
+    <a href="/signup">
+      <div>Sign Up</div>
+    </a>
+  <% else %>
+    <a href="/logout">
+      <div>Log Out</div>
+    </a>
+  <% end %>
 </nav>
 
 <div class="container">

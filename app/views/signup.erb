@@ -1,18 +1,47 @@
-<form action="/signup" method="post">
-  <section>
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="user[name]">
-  </section>
-  <section>
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="user[username]" required>
-  </section>
-  <section>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="user[password]">
-    <label for="password_conf">Password Confirmation:</label>
-    <input type="password" id="password_conf" name="user[password_confirmation]">
-  </section>
+<nav>
+  <a href="/">
+    <div>Hike It Up</div>
+  </a>
+  <a href="/trails">
+    <div>Trails</div>
+  </a>
+  <a href="/users">
+    <div>Users</div>
+  </a>
+  <% if !logged_in? %>
+    <a href="/login" class="Active">
+      <div>Login</div>
+    </a>
+  <% else %>
+    <a href="/logout">
+      <div>Log Out</div>
+    </a>
+  <% end %>
+</nav>
+
+<div class="container">
   <br>
-  <input type="submit" value="Sign Up">
-</form>
+  <header>
+    <h2>Create an account</h2>
+  </header>
+  <form action="/signup" method="post">
+    <section>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="user[name]">
+    </section>
+    <section>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="user[username]" required>
+    </section>
+    <section>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="user[password]" required>
+    </section>
+    <section>
+      <label for="password_conf">Confirmation:</label>
+      <input type="password" id="password_conf" name="user[password_confirmation]" required>
+    </section>
+
+    <input type="submit" value="Sign Up">
+  </form>
+</div>

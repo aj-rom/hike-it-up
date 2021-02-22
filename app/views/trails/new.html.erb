@@ -1,3 +1,27 @@
+<nav>
+  <a href="/">
+    <div>Hike It Up</div>
+  </a>
+  <a href="/trails">
+    <div>Trails</div>
+  </a>
+  <a href="/users">
+    <div>Users</div>
+  </a>
+  <% if !logged_in? %>
+    <a href="/login">
+      <div>Login</div>
+    </a>
+    <a href="/signup">
+      <div>Sign Up</div>
+    </a>
+  <% else %>
+    <a href="/logout">
+      <div>Log Out</div>
+    </a>
+  <% end %>
+</nav>
+
 <h1>Crate a new Trail</h1>
 <form action="/trails" method="post">
   <section>

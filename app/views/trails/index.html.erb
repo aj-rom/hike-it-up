@@ -8,6 +8,18 @@
   <a href="/users">
     <div>Users</div>
   </a>
+  <% if !logged_in? %>
+    <a href="/login">
+      <div>Login</div>
+    </a>
+    <a href="/signup">
+      <div>Sign Up</div>
+    </a>
+  <% else %>
+    <a href="/logout">
+      <div>Log Out</div>
+    </a>
+  <% end %>
 </nav>
 
 <h1>Trails</h1>
@@ -23,15 +35,3 @@
   </li>
   <% end %>
 </ul>
-
-<br>
-<h4>Navigation</h4>
-<footer>
-  <ul>
-    <li><a href="/users">Users</a></li>
-    <% if !logged_in? %>
-      <li><a href="/login">Login</a></li>
-      <li><a href="/signup">Sign Up</a></li>
-    <% end %>
-  </ul>
-</footer>
