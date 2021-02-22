@@ -24,7 +24,8 @@ class ApplicationController < Sinatra::Base
       session[:user_id] = user.id
       redirect "/users/#{user.username}"
     else
-      redirect '/failure'
+      # rack flash error message
+      redirect '/login'
     end
   end
 
