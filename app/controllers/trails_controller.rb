@@ -23,6 +23,7 @@ class TrailsController < ApplicationController
     @trail = Trail.find(params[:id])
     @reviews = @trail.reviews
     @review_count = @reviews.count
+    @trail_images = @trail.trail_images
     erb :"/trails/show.html"
   end
 
@@ -54,6 +55,19 @@ class TrailsController < ApplicationController
     @trail.save
 
     redirect "/trails/#{params[:id]}"
+  end
+
+  get "/trails/:id/new_image" do
+    @trail = Trail.find(params[:id])
+
+    erb :"/trails/new_image.html"
+  end
+
+  post "/trails/:id/new_image" do
+    image = TrailImage.create(params[:img])
+    image.save
+
+    redirect :"/trails/#{image.trail_id}"
   end
 
   # # DELETE: /trails/5/delete
