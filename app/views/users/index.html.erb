@@ -1,1 +1,32 @@
-<h1>This is the Model's index page.</h1>
+<nav>
+  <a href="/">
+    <div>Hike It Up</div>
+  </a>
+  <a href="/trails">
+    <div>Trails</div>
+  </a>
+  <a href="/users" class="active">
+    <div>Users</div>
+  </a>
+</nav>
+
+<div class="container">
+  <h2>All Users</h2>
+  <table class="reviews">
+    <tr>
+      <th>Username</th>
+      <th>Name</th>
+      <th>Trails Visited</th>
+    </tr>
+    <% User.all.each do |u| %>
+      <tr>
+        <td>
+          <a href="/users/<%=u.username %>"><%= u.username %></a>
+        </td>
+        <td><%= u.name %></td>
+        <td><%= u.trails.size %></td>
+      </tr>
+
+    <% end %>
+  </table>
+</div>

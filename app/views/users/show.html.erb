@@ -1,12 +1,48 @@
 <header>
   <nav>
-    <ul>
-      <li><a href="/users">Users</a></li>
-      <li><a href="/trails">Trails</a></li>
-    </ul>
+    <a href="/">
+      <div>Hike It Up</div>
+    </a>
+    <a href="/trails">
+      <div>Trails</div>
+    </a>
+    <a href="/users">
+      <div>Users</div>
+    </a>
   </nav>
 </header>
 <div class="container">
+  <div class="content">
+    <section>
+      <br>
+      <h2>Trails Visited</h2>
+      <p>
+        <% @user.trails.map { |t| %>
+          <a href="/trails/<%= t.id %>"><%= t.name %></a>
+        <% } %>
+      </p>
+    </section>
+
+    <section>
+      <h2>Reviews</h2>
+      <br>
+      <table class="reviews">
+        <tr>
+          <th>Rating</th>
+          <th>Description</th>
+          <th>Trail</th>
+        </tr>
+        <% @reviews.each do |r| %>
+          <tr>
+            <td><%= r.rating %></td>
+            <td><%= r.description %></td>
+            <td><a href="/trails/<%= r.trail.id %>"><%= r.trail.name %></a></td>
+          </tr>
+        <% end %>
+      </table>
+    </section>
+  </div>
+
   <div class="sidebar">
     <h3>Info</h3>
     <ul>
@@ -21,34 +57,7 @@
     </ul>
   </div>
 
-  <section>
-    <br>
-    <h2>Trails Visited</h2>
-    <p>
-      <% @user.trails.map { |t| %>
-        <a href="/trails/<%= t.id %>"><%= t.name %></a>
-      <% }.join(", ") %>
-    </p>
-  </section>
 
-  <section>
-    <h2>Reviews</h2>
-    <br>
-    <table class="reviews">
-      <tr>
-        <th>Rating</th>
-        <th>Description</th>
-        <th>Trail</th>
-      </tr>
-      <% @reviews.each do |r| %>
-        <tr>
-          <td><%= r.rating %></td>
-          <td><%= r.description %></td>
-          <td><a href="/trails/<%= r.trail.id %>"><%= r.trail.name %></a></td>
-        </tr>
-      <% end %>
-    </table>
-  </section>
 </div>
 
 
