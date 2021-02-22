@@ -1,0 +1,27 @@
+<h1><%= @trail.name %></h1>
+<h2>Leave a Review</h2>
+<form action="/trails/<%= @trail.id %>" method="post">
+  <section>
+    <label>Rate You're Experience:
+      <br>
+      <% i = 1 %>
+      <% 5.times do %>
+        <label for="<%= i %>"><%= i %></label>
+        <input type="radio" id="<%= i %>" value="<%= i %>" name="review[rating]" required>
+        <% i += 1 %>
+      <% end %>
+    </label>
+  </section>
+
+  <br>
+
+  <section>
+    <label for="description">Leave a description:</label>
+    <br>
+    <textarea id="description" name="review[description]" required></textarea>
+  </section>
+
+  <br>
+
+  <input type="submit" value="Submit Review">
+</form>

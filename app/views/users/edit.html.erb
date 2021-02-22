@@ -1,0 +1,30 @@
+<h1>Edit Profile</h1>
+<form action="/users/<%= @user.username %>" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+
+  <section>
+    <label for="username">Username:</label>
+    <input type="text" id="username" value="<%= @user.username %>" name="user[username]">
+  </section>
+
+  <br>
+
+  <section>
+    <label for="name">Name: </label>
+    <input type="text" id="name" value="<%= @user.name %>" name="user[name]">
+  </section>
+
+  <br>
+
+  <section>
+    <label for="status">Status:</label>
+    <input type="textarea" id="status" value="<%= @user.status %>" name="user[status]">
+  </section>
+
+  <br>
+
+  <section>
+    <input type="submit" value="Update Profile">
+  </section>
+
+</form>

@@ -1,0 +1,25 @@
+<h1>Trails</h1>
+<% if logged_in? %>
+<a href="/trails/new">Add a new Trail</a>
+<% end %>
+<h2>Here are all of the current trails on the site.</h2>
+
+<ul>
+  <% Trail.all.each do |t| %>
+  <li>
+    <a href="/trails/<%= t.id %>"><%= t.name %></a>
+  </li>
+  <% end %>
+</ul>
+
+<br>
+<h4>Navigation</h4>
+<footer>
+  <ul>
+    <li><a href="/users">Users</a></li>
+    <% if !logged_in? %>
+      <li><a href="/login">Login</a></li>
+      <li><a href="/signup">Sign Up</a></li>
+    <% end %>
+  </ul>
+</footer>

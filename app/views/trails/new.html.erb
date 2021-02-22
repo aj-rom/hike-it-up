@@ -1,0 +1,27 @@
+<h1>Crate a new Trail</h1>
+<form action="/trails" method="post">
+  <section>
+    <label for="name">Trail Name:</label>
+    <input type="text" id="name" name="trail[name]" required>
+  </section>
+  <br>
+  <section>
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="trail[address]" required>
+  </section>
+  <br>
+  <section>
+    <label for="hours">Hours:</label>
+    <input type="text" id="hours" name="trail[hours]" required>
+  </section>
+  <br>
+  <section>
+    <label for="description">Description:</label>
+    <textarea id="description" name="trail[description]"></textarea>
+  </section>
+  <br>
+
+  <section>
+    <input type="submit" value="Create Trail">
+  </section>
+</form>

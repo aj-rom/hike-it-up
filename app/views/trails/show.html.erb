@@ -1,0 +1,41 @@
+<h1 style="text-align: center"><%= @trail.name %></h1>
+<div>
+  <b>Overall Rating:</b>
+  <%= @reviews.sum(:rating) / @review_count %>
+</div>
+<div>
+  <b>Hours:</b>
+  <%= @trail.hours %>
+</div>
+<div>
+  <b>Address:</b>
+  <%= @trail.address %>
+</div>
+<div>
+  <b>Description:</b>
+  <p><%= @trail.description %></p>
+</div>
+
+
+<h2><%= @review_count %> Review<%= "s" unless @review_count == 1 %></h2>
+<table class="reviews">
+  <tr>
+    <th>Rating</th>
+    <th>Description</th>
+    <th>User</th>
+  </tr>
+  <% @reviews.each do |r| %>
+    <tr>
+      <td><%= r.rating %></td>
+      <td><%= r.description %></td>
+      <td><a href="/users/<%= r.user.username %>"><%= r.user.username %></a></td>
+    </tr>
+  <% end %>
+</table>
+<br>
+<% if logged_in? %>
+  <a href="/trails/<%= @trail.id %>/edit">Edit this Trail</a>
+  <a href="/trails/<%= @trail.id %>/review">Leave a Review</a>
+<% else %>
+  <p><a href="/login">Log In</a> to leave a review</p>
+<% end %>
