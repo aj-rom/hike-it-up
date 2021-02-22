@@ -20,28 +20,39 @@
 </nav>
 
 <div class="container">
-  <br>
-  <header>
-    <h2>Create an account</h2>
-  </header>
   <form action="/signup" method="post">
-    <section>
+    <h1>Create an Account</h1>
+
+    <% if flash[:notice] %>
+      <div id='flash' class="notice">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <% if flash[:error] %>
+      <div id='flash' class='error'>
+        <%= flash[:error] %>
+      </div>
+    <% end %>
+
+    <section class="input">
       <label for="name">Name:</label>
       <input type="text" id="name" name="user[name]">
     </section>
-    <section>
+    <section class="input">
       <label for="username">Username:</label>
       <input type="text" id="username" name="user[username]" required>
     </section>
-    <section>
+    <section class="input">
       <label for="password">Password:</label>
       <input type="password" id="password" name="user[password]" required>
     </section>
-    <section>
+    <section class="input">
       <label for="password_conf">Confirmation:</label>
       <input type="password" id="password_conf" name="user[password_confirmation]" required>
     </section>
 
-    <input type="submit" value="Sign Up">
+    <section class="submit">
+      <input type="submit" value="Sign Up">
+    </section>
   </form>
 </div>

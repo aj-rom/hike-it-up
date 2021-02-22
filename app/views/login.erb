@@ -23,28 +23,33 @@
 </nav>
 
 <div class="container">
-  <br>
-  <h2>Login to your account</h2>
-
   <form action="/login" method="post">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required>
+    <h1>Log In to your Account</h1>
 
-    <br>
+    <% if flash[:notice] %>
+      <div id='flash' class="notice">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <% if flash[:error] %>
+      <div id='flash' class='error'>
+        <%= flash[:error] %>
+      </div>
+    <% end %>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
+    <section class="input">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+    </section>
 
-    <br>
+    <section class="input">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+    </section>
 
-    <div id='flash' class='error'>
-      <%= flash[:error] %>
-    </div>
-
-    <div id='flash' class="notice">
-      <%= flash[:notice] %>
-    </div>
-    <input type="submit" value="Login">
+    <section class="submit">
+      <input type="submit" value="Login">
+    </section>
   </form>
 </div>
 

@@ -1,30 +1,44 @@
-<h1>Edit Profile</h1>
-<form action="/users/<%= @user.username %>" method="post">
-  <input type="hidden" name="_method" value="PATCH">
+<nav>
+  <a href="/">
+    <div>Hike It Up</div>
+  </a>
+  <a href="/trails">
+    <div>Trails</div>
+  </a>
+  <a href="/users">
+    <div>Users</div>
+  </a>
+  <% if logged_in? %>
+    <a href="/logout">
+      <div>Log Out</div>
+    </a>
+  <% end %>
+</nav>
 
-  <section>
-    <label for="username">Username:</label>
-    <input type="text" id="username" value="<%= @user.username %>" name="user[username]">
-  </section>
+<div class="container">
 
-  <br>
+  <form action="/users/<%= @user.username %>" method="post">
+    <input type="hidden" name="_method" value="PATCH">
+    <h1>Edit Profile</h1>
+    <section class="input">
+      <label for="username">Username:</label>
+      <input type="text" id="username" value="<%= @user.username %>" name="user[username]">
+    </section>
 
-  <section>
-    <label for="name">Name: </label>
-    <input type="text" id="name" value="<%= @user.name %>" name="user[name]">
-  </section>
+    <section class="input">
+      <label for="name">Name: </label>
+      <input type="text" id="name" value="<%= @user.name %>" name="user[name]">
+    </section>
 
-  <br>
+    <section class="input">
+      <label for="status">Status:</label>
+      <input type="textarea" id="status" value="<%= @user.status %>" name="user[status]">
+    </section>
 
-  <section>
-    <label for="status">Status:</label>
-    <input type="textarea" id="status" value="<%= @user.status %>" name="user[status]">
-  </section>
+    <section class="submit">
+      <input type="submit" value="Update Profile">
+    </section>
 
-  <br>
+  </form>
+</div>
 
-  <section>
-    <input type="submit" value="Update Profile">
-  </section>
-
-</form>

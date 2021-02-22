@@ -1,25 +1,40 @@
 <% if logged_in? %>
-
+  <nav>
+    <a href="/">
+      <div>Hike It Up</div>
+    </a>
+    <a href="/trails">
+      <div>Trails</div>
+    </a>
+    <a href="/users">
+      <div>Users</div>
+    </a>
+    <a href="/logout">
+      <div>Log Out</div>
+    </a>
+  </nav>
 <div class="container">
-  <header>
-    <b><%= @trail.name %></b>
-  </header>
-    <h2>Add Images</h2>
-    <div class="content">
+  <h2><%= @trail.name %></h2>
+
       <form action="/trails/:id/new_image" method="post">
         <input type="hidden" name="img[trail_id]" value="<%= @trail.id %>">
-        <label for="url">Image Link:</label>
+        <h1>Add An Image</h1>
 
-        <input name="img[url]" id="url" type="url" pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png|.gif)" required>
+        <section class="input">
+          <label for="url">Image Link:</label>
+          <input name="img[url]" id="url" type="url" pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png|.gif)" required>
+        </section>
 
-        <br>
-        <label for="caption">Caption:</label>
-        <input type="text" id="caption" name="img[caption]" alt="Image Caption">
-        <br>
-        <input type="submit" value="Add Image">
+        <section class="input">
+          <label for="caption">Caption:</label>
+          <input type="text" id="caption" name="img[caption]" alt="Image Caption">
+        </section>
+
+        <section class="submit">
+          <input type="submit" value="Add Image">
+        </section>
       </form>
       <br>
-    </div>
 </div>
 
 <% else %>
