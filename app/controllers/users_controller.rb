@@ -32,7 +32,7 @@ class UsersController < ApplicationController
       if @user == cu
         erb :"/users/edit.html"
       else
-        redirect :"/users/#{cu.username}/edit"
+        redirect :"/users/#{@user.username}"
       end
     else
       erb :"/users/404.html"
