@@ -1,22 +1,37 @@
-<div class="wrapper">
-  <div class="container">
-    <div class="sidebar">
-      <h3>Info</h3>
-      <ul>
-        <li><b>Username:</b> <%= @user.username %></li>
-        <li><b>Name:</b> <%= @user.name %></li>
-        <li><b>Status:</b> <%= @user.status %></li>
-      </ul>
-    </div>
+<header>
+  <nav>
+    <ul>
+      <li><a href="/users">Users</a></li>
+      <li><a href="/trails">Trails</a></li>
+    </ul>
+  </nav>
+</header>
+<div class="container">
+  <div class="sidebar">
+    <h3>Info</h3>
+    <ul>
+      <li><b>Username:</b> <%= @user.username %></li>
+      <li><b>Name:</b> <%= @user.name %></li>
+      <li><b>Status:</b> <%= @user.status %></li>
+      <% if current_user == @user %>
+        <li>
+          <a href="/users/<%= @user.username %>/edit">Edit Profile</a>
+        </li>
+      <% end %>
+    </ul>
   </div>
-  <div class="container">
+
+  <section>
+    <br>
     <h2>Trails Visited</h2>
     <p>
       <% @user.trails.map { |t| %>
         <a href="/trails/<%= t.id %>"><%= t.name %></a>
-        <% }.join(", ") %>
+      <% }.join(", ") %>
     </p>
+  </section>
 
+  <section>
     <h2>Reviews</h2>
     <br>
     <table class="reviews">
@@ -33,11 +48,7 @@
         </tr>
       <% end %>
     </table>
-    <% if current_user == @user %>
-      <br>
-      <a href="/users/<%= @user.username %>/edit">Edit Profile</a>
-    <% end %>
-  </div>
-
+  </section>
 </div>
+
 

@@ -1,14 +1,50 @@
+<nav>
+    <a href="/">
+      <div>Hike It Up</div>
+    </a>
+    <a href="/trails">
+      <div>Trails</div>
+    </a>
+    <a href="/users">
+      <div>Users</div>
+    </a>
+</nav>
+
 <div class="container">
     <header>
       <h1 style="text-align: center"><%= @trail.name %></h1>
     </header>
+  <div class="slideshow-container">
 
+    <% img_count =  @trail_images.count %>
+    <% if img_count > 0 %>
+    <% @trail_images.each.with_index(1) do |i, idx| %>
+      <div class="mySlides fade">
+        <div class="numbertext"><%= idx %> / <%= img_count %></div>
+        <img src="<%= i.url %>" alt="<% @trail.name %> Image">
+        <% unless i.caption.empty? %>
+          <div class="text"><i><%=  i.caption  %></i></div>
+        <%  end %>
+      </div>
+    <% end %>
+    <br>
 
+      <% if img_count > 1 %>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      <% end %>
+    <% end %>
+  </div>
+  <% if logged_in? %>
+    <a href="/trails/<%=@trail.id %>/new_image">Add Image</a>
+  <% end %>
+
+  <br>
   <div class="col-md-8 col-md-offset-2">
     <div class="sidebar">
       <h3>Details</h3>
       <ul>
-        <li><b>Overall Rating:</b> <%= @reviews.sum(:rating).to_f / @review_count.to_f %></li>
+        <li><b>Overall Rating:</b> <%= '%.2f' % (@reviews.sum(:rating).to_f / @review_count.to_f) %></li>
         <li><b>Hours:</b> <%= @trail.hours %></li>
         <li><b>Address:</b> <%= @trail.address %></li>
         <li><b>Description:</b> <%= @trail.description %></li>
@@ -17,39 +53,6 @@
         <% end %>
       </ul>
     </div>
-
-    <div class="slideshow-container" style="z-index: 1">
-
-      <div class="mySlides fade">
-        <div class="numbertext">1 / 3</div>
-        <img src="https://dayhikesneardenver.com/wp-content/uploads/2013/08/00-first-flatiron-hike-near-boulder-chautauqua-trail.jpg" style="width:100%" alt="img">
-        <div class="text">Caption Text</div>
-      </div>
-
-      <div class="mySlides fade">
-        <div class="numbertext">2 / 3</div>
-        <img src="https://cdn-assets.alltrails.com/uploads/photo/image/20804604/large_0af750e4cf30cafc94ab631f3198bb21.jpg" style="width:100%">
-        <div class="text">Caption Two</div>
-      </div>
-
-      <div class="mySlides fade">
-        <div class="numbertext">3 / 3</div>
-        <img src="img_mountains_wide.jpg" style="width:100%">
-        <div class="text">Caption Three</div>
-      </div>
-
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-    </div>
-    <br>
-
-    <div style="text-align:center">
-      <span class="dot" onclick="currentSlide(1)"></span>
-      <span class="dot" onclick="currentSlide(2)"></span>
-      <span class="dot" onclick="currentSlide(3)"></span>
-    </div>
-
 </div>
 
 
@@ -79,3 +82,27 @@
 <% else %>
   <p><a href="/login">Log In</a> to leave a review</p>
 <% end %>
+
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex-1].style.display = "block";
+    }
+</script>
