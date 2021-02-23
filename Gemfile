@@ -12,11 +12,7 @@ gem 'rack-flash3'
 gem 'bcrypt'
 
 group :development, :production do
-  gem 'rake'
-  gem 'rack'
-end
-
-group :production do
+  gem 'thin'
   gem 'pg', '~> 0.18.4'
 end
 

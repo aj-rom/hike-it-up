@@ -1,6 +1,5 @@
 require './config/environment'
 require 'rack-flash'
-require 'securerandom'
 
 class ApplicationController < Sinatra::Base
 

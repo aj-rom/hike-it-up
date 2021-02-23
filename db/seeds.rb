@@ -1,3 +1,12 @@
+user = {
+  username: "ajrom",
+  name: "A.J. Romaniello",
+  password: "password",
+  password_confirmation: "password"
+}
+
+User.create(user).save
+
 trails = {
   'Enchanted Mesa Trailhead': {
     description: 'Hiking area in Boulder, CO',
