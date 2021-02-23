@@ -13,3 +13,7 @@ gem 'pry'
 gem 'bcrypt'
 gem 'tux'
 gem 'rack-flash3'
+
+group :production do
+  gem 'thin'  
+end
