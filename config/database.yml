@@ -1,10 +1,16 @@
-production:
-  adapter: postgresql
-  host: localhost
-  database: hike-it-up-production
-
 development:
   adapter: postgresql
-  host: localhost
-  database: hike-it-up-development
+  encoding: unicode
+  database: development
+  pool: 2
+  username: ajrom
+  password: Romaniello12
 
+production:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: <%= ENV['DATABASE_HOST'] %>
+  database: production
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
