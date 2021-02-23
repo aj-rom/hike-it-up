@@ -8,7 +8,6 @@ gem 'rake'
 gem 'require_all'
 gem 'pg', '~> 0.18.4'
 gem 'rack-flash3'
-gem 'thin'
 
 group :development do
   gem 'shotgun'
