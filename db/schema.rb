@@ -12,27 +12,31 @@
 
 ActiveRecord::Schema.define(version: 2021_02_22_173851) do
 
-  create_table "reviews", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "adminpack"
+  enable_extension "plpgsql"
+
+  create_table "reviews", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.integer "trail_id"
     t.string "description"
     t.integer "rating"
   end
 
-  create_table "trail_images", force: :cascade do |t|
+  create_table "trail_images", id: :serial, force: :cascade do |t|
     t.integer "trail_id"
     t.string "url"
     t.string "caption"
   end
 
-  create_table "trails", force: :cascade do |t|
+  create_table "trails", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.string "address"
     t.string "hours"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :serial, force: :cascade do |t|
     t.string "username"
     t.string "name"
     t.string "password_digest"

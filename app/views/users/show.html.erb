@@ -9,7 +9,24 @@
     <a href="/users">
       <div>Users</div>
     </a>
-  </nav>
+    <% if !logged_in? %>
+    <a href="/login">
+      <div>Login</div>
+    </a>
+    <a href="/signup">
+      <div>Sign Up</div>
+    </a>
+  <% else %>
+      <% if current_user == @user %>
+          <a href="/users/<%= @user.username %>/edit">
+      <div>Edit Profile</div>
+    </a>
+      <% end %>
+    <a href="/logout">
+      <div>Log Out</div>
+    </a>
+  <% end %>
+    </nav>
 </header>
 <div class="container">
   <div class="content">
@@ -49,11 +66,6 @@
       <li><b>Username:</b> <%= @user.username %></li>
       <li><b>Name:</b> <%= @user.name %></li>
       <li><b>Status:</b> <%= @user.status %></li>
-      <% if current_user == @user %>
-        <li>
-          <a href="/users/<%= @user.username %>/edit">Edit Profile</a>
-        </li>
-      <% end %>
     </ul>
   </div>
 
