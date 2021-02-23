@@ -12,5 +12,5 @@ task :dev do
 end
 
 task :start do
-  exec("puma -e production -b tcp://127.0.0.1:9292 -w 3 --preload")
+  exec("puma -e production -b tcp://127.0.0.1:9292")
 end
