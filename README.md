@@ -21,6 +21,9 @@ I hope to get this up and running for free on a heroku server. In the meantime f
 * Clone this project.
 * CD into the projects directory.
 * Run `bundle install`
+* Create a new PostgreSQL server at `port: 5433`
+* Run `rake db:migrate` to initialize your PostgreSQL database
+* OPTIONAL: Seed your database with some data run `rake db:seed`
 * Run `APP_ENV=production bundle exec rackup -p 9292`
 * Navigate to [localhost:9292](http://localhost:9292/)
 
