@@ -6,7 +6,7 @@ Bundler.require(:default, ENV['SINATRA_ENV'])
 ActiveRecord::Base.establish_connection(
   adapter:    'postgresql',
   host:       'localhost',
-  database: 'postgres',
+  database: "hike-it-up-#{ENV["SINATRA_ENV"]}",
   port: 5433
 )
 

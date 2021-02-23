@@ -1,0 +1,10 @@
+production:
+  adapter: postgresql
+  host: localhost
+  database: hike-it-up-production
+
+development:
+  adapter: postgresql
+  host: localhost
+  database: hike-it-up-development
+
