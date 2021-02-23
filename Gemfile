@@ -7,9 +7,15 @@ gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem 'rake'
 gem 'require_all'
 gem 'pg', '~> 0.18.4'
-gem 'shotgun'
-gem 'pry'
-gem 'bcrypt'
-gem 'thin'
-gem 'tux'
 gem 'rack-flash3'
+
+group :development do
+  gem 'shotgun'
+  gem 'pry'
+  gem 'tux'
+end
+
+group :production do
+  gem 'thin'  
+  gem 'bcrypt'
+end
