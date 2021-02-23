@@ -9,14 +9,7 @@ gem 'require_all'
 gem 'pg', '~> 0.18.4'
 gem 'rack-flash3'
 gem 'thin'
+gem 'bcrypt'
 gem 'shotgun'
-
-group :development do
-  gem 'pry'
-  gem 'tux'
-end
-
-group :production do
-  gem 'thin'  
-  gem 'bcrypt'
-end
+gem 'pry'
+gem 'tux'
