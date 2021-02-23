@@ -15,7 +15,35 @@
   </head>
   <body>
     <div class="wrapper">
-
+  <nav>
+    <a href="/">
+      <div>Hike It Up</div>
+    </a>
+    <a href="/trails">
+      <div>Trails</div>
+    </a>
+    <a href="/users">
+      <div>Users</div>
+    </a>
+    <% if !logged_in? %>
+      <a href="/login">
+        <div>Login</div>
+      </a>
+      <a href="/signup">
+        <div>Sign Up</div>
+      </a>
+    <% else %>
+      <a href="/trails/new">
+        <div>Add Trail</div>
+      </a>
+      <a href="/users/<%= current_user.username %>/edit">
+        <div>Edit Profile</div>
+      </a>
+      <a href="/logout">
+        <div>Log Out</div>
+      </a>
+    <% end %>
+  </nav>
         <%= yield %>
 
       <footer class="branding">

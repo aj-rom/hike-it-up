@@ -45,6 +45,7 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:username])
     @user.update(params[:user])
 
+    session[:user_id] = @user.id
     redirect "/users/#{@user.username}"
   end
 

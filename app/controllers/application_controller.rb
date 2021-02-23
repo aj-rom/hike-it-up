@@ -1,5 +1,6 @@
 require './config/environment'
 require 'rack-flash'
+require 'securerandom'
 
 class ApplicationController < Sinatra::Base
 
@@ -8,7 +9,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     use Rack::Flash
-    set :session_secret, "password_security"
+    set :session_secret, "secret"
   end
 
   get "/" do
@@ -20,11 +21,11 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/login" do
-    user = User.find_by(username: params[:username].downcase)
+    @user = User.find_by(username: params[:username].downcase)
 
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect "/users/#{user.username}"
+    if @user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
+      redirect "/users/#{@user.username}"
     else
       # rack flash error message
       flash[:error] = "Credentials did not match our records!"
@@ -37,7 +38,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/signup" do
-    if User.find_by(name: params[:user][:username])
+    if User.find_by(username: params[:user][:username])
       flash[:error] = "An account with that username already exists."
       redirect '/signup'
     else
@@ -68,9 +69,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-      if logged_in?
-        User.find(session[:user_id])
-      end
+      User.find(session[:user_id])
     end
 
   end

@@ -1,38 +1,11 @@
 <div class="container">
-  <header>
-    <nav>
-    <a href="/" class="active">
-      <div>Hike It Up</div>
-    </a>
-    <a href="/trails">
-      <div>Trails</div>
-    </a>
-    <a href="/users">
-      <div>Users</div>
-    </a>
-    <% if !logged_in? %>
-      <a href="/login">
-        <div>Login</div>
-      </a>
-      <a href="/signup">
-        <div>Sign Up</div>
-      </a>
-    <% else %>
-      <a href="/logout">
-        <div>Log Out</div>
-      </a>
-    <% end %>
-  </nav>
-  </header>
-  <br>
-
   <div class="col-md-8 col-md-offset-2">
     <h1>Hike It Up</h1>
 
     <div class="content">
       <p>Welcome to <b>Hike It Up</b>, a web application focused on rating and sharing different hiking trails around the world. To get started reviewing or adding trails, <a href="/signup">create an account</a>, or feel free to just browse around. For more information, see the <a href="https://github.com/CoachLuck/hike-it-up">README</a>.</p>
       <p>This project was built using <a href="https://github.com/thebrianemory/corneal">Corneal</a> to scaffold and create sinatra routes and view directories.</p>
-      <p>HikeItUp also uses MySQL with ActiveRecord to handle your data. All passwords are encrpyted using <a href="https://github.com/codahale/bcrypt-ruby">bcrypt-ruby</a></p>
+      <p>HikeItUp also uses MySQL with ActiveRecord to handle your data. All passwords are encrpyted using <a href="https://github.com/codahale/bcrypt-ruby">bcrypt-ruby</a>.</p>
     </div>
 
     <div class="sidebar">

@@ -1,0 +1,6 @@
+development:
+  adapter: postgresql
+  database: hike_it_up
+  pool: 5
+
+
