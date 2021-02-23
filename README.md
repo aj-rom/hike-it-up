@@ -21,10 +21,11 @@ I hope to get this up and running for free on a heroku server. In the meantime f
 * Clone this project.
 * CD into the projects directory.
 * Run `bundle install`
-* Create a new PostgreSQL server at `port: 5433`
-* Run `rake db:migrate` to initialize your PostgreSQL database
-* OPTIONAL: Seed your database with some data run `rake db:seed`
-* Run `rake start' for production or 'rake dev' for development mode (live updates)
+* Configure your PostgreSQL user in `database.yml`
+  * Make sure to change username & password to be able to connect to your postgre database.
+* Run `rake dev:setup` to initialize your PostgreSQL database
+* OPTIONAL: Run the production grade by using `rake production:setup` then `rake production:start`
+* Start your server with either `rake dev:start` or `rake production:start`
 * Navigate to [Production - localhost:9292](http://localhost:9292/) or [Development - localhost:9393](http://localhost:9393/)
 
 ## Architecture Information
