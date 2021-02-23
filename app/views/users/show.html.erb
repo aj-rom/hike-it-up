@@ -2,6 +2,9 @@
   <div class="sidebar">
     <h2>Info</h3>
     <ul>
+      <% if logged_in? && current_user == @user %>
+      <li><a href="/users/<%= @user.username %>/edit"><b>Edit Profile</b></a></li>
+      <% end %>
       <li><b>Username:</b> <%= @user.username %></li>
       <li><b>Name:</b> <%= @user.name %></li>
       <li><b>Status:</b> <%= @user.status %></li>

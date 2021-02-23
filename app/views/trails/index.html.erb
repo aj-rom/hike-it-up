@@ -3,7 +3,8 @@
 <ul>
   <% Trail.all.each do |t| %>
   <li>
-    <a href="/trails/<%= t.id %>"><%= t.name %></a>
+    <% @r_count = t.reviews.count %>
+    <a href="/trails/<%= t.id %>"><%= t.name %></a><%= " - ( #{@r_count} Review#{"s" unless @r_count == 1} )"%>
   </li>
   <% end %>
 </ul>
