@@ -1,33 +1,5 @@
-<nav>
-  <a href="/">
-    <div>Hike It Up</div>
-  </a>
-  <a href="/trails" class="active">
-    <div>Trails</div>
-  </a>
-  <a href="/users">
-    <div>Users</div>
-  </a>
-  <% if !logged_in? %>
-    <a href="/login">
-      <div>Login</div>
-    </a>
-    <a href="/signup">
-      <div>Sign Up</div>
-    </a>
-  <% else %>
-    <a href="/logout">
-      <div>Log Out</div>
-    </a>
-  <% end %>
-</nav>
-
-<h1>Trails</h1>
-<% if logged_in? %>
-<a href="/trails/new">Add a new Trail</a>
-<% end %>
-<h2>Here are all of the current trails on the site.</h2>
-
+<div class="content">
+<h2>Trails</h2>
 <ul>
   <% Trail.all.each do |t| %>
   <li>
@@ -35,3 +7,5 @@
   </li>
   <% end %>
 </ul>
+<br>
+</div>

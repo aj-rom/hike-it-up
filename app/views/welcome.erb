@@ -1,31 +1,4 @@
 <div class="container">
-  <header>
-    <nav>
-    <a href="/" class="active">
-      <div>Hike It Up</div>
-    </a>
-    <a href="/trails">
-      <div>Trails</div>
-    </a>
-    <a href="/users">
-      <div>Users</div>
-    </a>
-    <% if !logged_in? %>
-      <a href="/login">
-        <div>Login</div>
-      </a>
-      <a href="/signup">
-        <div>Sign Up</div>
-      </a>
-    <% else %>
-      <a href="/logout">
-        <div>Log Out</div>
-      </a>
-    <% end %>
-  </nav>
-  </header>
-  <br>
-
   <div class="col-md-8 col-md-offset-2">
     <h1>Hike It Up</h1>
 

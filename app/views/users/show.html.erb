@@ -1,48 +1,23 @@
-<header>
-  <nav>
-    <a href="/">
-      <div>Hike It Up</div>
-    </a>
-    <a href="/trails">
-      <div>Trails</div>
-    </a>
-    <a href="/users">
-      <div>Users</div>
-    </a>
-    <% if !logged_in? %>
-    <a href="/login">
-      <div>Login</div>
-    </a>
-    <a href="/signup">
-      <div>Sign Up</div>
-    </a>
-  <% else %>
-      <% if current_user == @user %>
-          <a href="/users/<%= @user.username %>/edit">
-      <div>Edit Profile</div>
-    </a>
-      <% end %>
-    <a href="/logout">
-      <div>Log Out</div>
-    </a>
-  <% end %>
-    </nav>
-</header>
 <div class="container">
+  <div class="sidebar">
+    <h2>Info</h3>
+    <ul>
+      <li><b>Username:</b> <%= @user.username %></li>
+      <li><b>Name:</b> <%= @user.name %></li>
+      <li><b>Status:</b> <%= @user.status %></li>
+      <ul><b>Trails Visited:</b>
+      <% @user.trails.uniq.each do |t| %>
+        <li><a href="/trails/<%= t.id %>"><%= t.name %></a></li>
+      <% end %>
+      </ul>
+    </ul>
+    <br>
+  </div>
+
   <div class="content">
     <section>
-      <br>
-      <h2>Trails Visited</h2>
-      <p>
-        <% @user.trails.map { |t| %>
-          <a href="/trails/<%= t.id %>"><%= t.name %></a>
-        <% } %>
-      </p>
-    </section>
-
-    <section>
+    <br>
       <h2>Reviews</h2>
-      <br>
       <table class="reviews">
         <tr>
           <th>Rating</th>
@@ -58,18 +33,8 @@
         <% end %>
       </table>
     </section>
+    <br>
   </div>
-
-  <div class="sidebar">
-    <h3>Info</h3>
-    <ul>
-      <li><b>Username:</b> <%= @user.username %></li>
-      <li><b>Name:</b> <%= @user.name %></li>
-      <li><b>Status:</b> <%= @user.status %></li>
-    </ul>
-  </div>
-
-
 </div>
 
 
