@@ -10,9 +10,6 @@ gem 'pg', '~> 0.18.4'
 gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
+gem 'thin'
 gem 'tux'
 gem 'rack-flash3'
-
-group :production do
-  gem 'thin'  
-end
