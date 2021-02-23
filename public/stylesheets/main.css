@@ -119,7 +119,6 @@
     max-height: 600px;
   }
 
-  /* Slideshow container */
   .slideshow-container {
     background-color: rgba(0, 0, 0, 0.1);
     box-shadow: 3px 2px 0.4em #3a7799, -3px -2px 0.4em #63b7e6;
@@ -130,7 +129,6 @@
     margin-bottom: 5px;
   }
 
-  /* Next & previous buttons */
   .prev,
   .next {
     z-index: 2;
