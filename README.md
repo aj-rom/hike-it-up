@@ -24,8 +24,8 @@ I hope to get this up and running for free on a heroku server. In the meantime f
 * Create a new PostgreSQL server at `port: 5433`
 * Run `rake db:migrate` to initialize your PostgreSQL database
 * OPTIONAL: Seed your database with some data run `rake db:seed`
-* Run `APP_ENV=production bundle exec rackup -p 9292`
-* Navigate to [localhost:9292](http://localhost:9292/)
+* Run `rake start' for production or 'rake dev' for development mode (live updates)
+* Navigate to [Production - localhost:9292](http://localhost:9292/) or [Development - localhost:9393](http://localhost:9393/)
 
 ## Architecture Information
 * [MVP Structure](#most-viable-product-structure)
