@@ -4,7 +4,12 @@ require 'bundler/setup'
 Bundler.require(:default, ENV['SINATRA_ENV'])
 
 ActiveRecord::Base.establish_connection(
-  ENV['DATABASE_URL'] || 'postgres://localhost/hikedb'
+  adapter:    'postgresql',
+  host:       'localhost',
+  database: 'postgres',
+  username:   'postgres',
+  password:   'pass',
+  port: 5433
 )
 
 require_all 'app'
