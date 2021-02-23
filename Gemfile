@@ -1,4 +1,4 @@
-ruby "2.6.6"
+ruby "2.6.1"
 source 'http://rubygems.org'
 
 gem 'sinatra'
@@ -7,7 +7,6 @@ gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem 'rake'
 gem 'require_all'
 gem 'pg', '~> 0.18.4'
-gem 'thin'
 gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'

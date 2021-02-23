@@ -57,7 +57,6 @@ GEM
     sinatra-activerecord (2.0.22)
       activerecord (>= 4.1)
       sinatra (>= 1.0)
-    sysrandom (1.0.5)
     thin (1.8.0)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0, >= 1.0.4)
@@ -87,9 +86,11 @@ DEPENDENCIES
   shotgun
   sinatra
   sinatra-activerecord
-  sysrandom
   thin
   tux
+
+RUBY VERSION
+   ruby 2.6.1p33
 
 BUNDLED WITH
    2.2.8
