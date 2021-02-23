@@ -73,7 +73,7 @@ namespace :dev do
 
   desc "Start the #{env_name} server"
   task :start do
-    exec("puma -e #{env_name} -b tcp://127.0.0.1:9292")
+    exec("puma -e #{env_name} -b tcp://127.0.0.1:9393")
   end
 
   desc "Quickly creates and seeds the database for #{env_name}"
