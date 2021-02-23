@@ -16,17 +16,14 @@ This was a great way to get used to building out a project using the [MVC](https
 * How to build a MVC structured web application
 
 ## Running the Application
-I hope to get this up and running for free on a heroku server. In the meantime feel free to clone this project and follow the steps below to get started.
+Preview the production server on heroku [here](https://hike-it-up.herokuapp.com/).
 
+To Run this project locally:
 * Clone this project.
 * CD into the projects directory.
 * Run `bundle install`
-* Configure your PostgreSQL user in `database.yml`
-  * Make sure to change username & password to be able to connect to your postgre database.
-* Run `rake dev:setup` to initialize your PostgreSQL database
-* OPTIONAL: Run the production grade by using `rake production:setup` then `rake production:start`
-* Start your server with either `rake dev:start` or `rake production:start`
-* Navigate to [Production - localhost:9292](http://localhost:9292/) or [Development - localhost:9393](http://localhost:9393/)
+* Run `rake db:setup` to initialize your PostgreSQL database
+* Start your server with either `puma` or `puma -C config/puma.rb`
 
 ## Architecture Information
 * [MVP Structure](#most-viable-product-structure)
