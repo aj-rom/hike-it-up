@@ -1,14 +1,19 @@
 # Hike It Up
 A website to view and rate the best hiking spots around!
-This project is built on **Ruby** using **Sinatra**, and **ActiveRecord** utilizing **PostgreSQL** for data storage. *Hike It Up* was built as a portfolio project at [Flatiron School](https://flatironschool.com/). 
+This project is built on [Ruby](https://www.ruby-lang.org/) using [Sinatra](http://sinatrarb.com/), [ActiveRecord](https://guides.rubyonrails.org/active_record_basics.html), and utilizing [PostgreSQL](https://www.postgresql.org/) for data storage. *Hike It Up* was built as a portfolio project for the [Flatiron School](https://flatironschool.com/). 
+
+### Quick Links
+- [Running The Application](#running-the-application)
+- [Architecture](#architecture-information)
+- [Credits](#credits)
 
 ## Why?
-This was a great way to get used to building out a project using in the [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) structure. I wanted to explore the possibilites of using **Sinatra** to build a web application and create object relations between users and something. Taking one of my passions, hiking, and merging it with my new found knowledge I arrived at *Hike It Up*. 
+This was a great way to get used to building out a project using the [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) architecture. I wanted to explore the possibilites of using [Sinatra](http://sinatrarb.com/) to build a web application and create object relations between users and something. Taking one of my passions, hiking, and merging it with my new found knowledge I arrived at *Hike It Up*. 
 
-What I hoped to learn:
+### What I hoped to learn
 * How to successfully authenticate a user within a sinatra application using bcrypt
 * How to utilize HTML forms along with Sinatra to perform CRUD based operations
-* How to build a MVC structured application
+* How to build a MVC structured web application
 
 ## Running the Application
 I hope to get this up and running for free on a heroku server. In the meantime feel free to clone this project and follow the steps below to get started.
@@ -19,7 +24,7 @@ I hope to get this up and running for free on a heroku server. In the meantime f
 * Run `APP_ENV=production bundle exec rackup -p 9292`
 * Navigate to [localhost:9292](http://localhost:9292/)
 
-## Information
+## Architecture Information
 * [MVP Structure](#most-viable-product-structure)
 * [Stretch Features](#stretch-features )
 
@@ -71,4 +76,7 @@ To implement this I created [migrations](https://www.github.com/CoachLuck/hike-i
 - [X] [Add captions to images](https://www.github.com/CoachLuck/hike-it-up/db/migrate/20210222173851_add_captions_to_images.rb)
 - [ ] Delete/Edit their reviews
 
-
+## Credits
+* [bcrypt](https://github.com/codahale/bcrypt-ruby) - Open-source password hashing algorithm
+* [corneal](https://github.com/thebrianemory/corneal) - Sinatra app generator
+* [tux](https://github.com/cldwalker/tux) - Dresses up Sinatra in a shell
