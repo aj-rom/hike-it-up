@@ -1,2 +1,1 @@
-dev: bundle exec rackup
-web: APP_ENV=production bundle exec rackup -p "$PORT"
+web: bundle exec puma -C config/puma.rb
