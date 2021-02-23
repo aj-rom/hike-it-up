@@ -3,7 +3,7 @@ threads threads_count, threads_count
 
 rackup      DefaultRackup
 port        ENV['PORT']     || 3000
-environment ENV['RACK_ENV'] || 'development'
+environment ENV['RACK_ENV'] || 'production'
 
 on_worker_boot do
   # Worker specific setup for Rails 4.1+
