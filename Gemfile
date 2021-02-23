@@ -1,15 +1,27 @@
-ruby "2.6.0"
+# frozen_string_literal: true
+
 source 'http://rubygems.org'
+
+ruby "2.6.0"
 
 gem 'sinatra'
 gem 'activerecord', '~> 5.2', '>= 5.2.0', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
-gem 'rake'
+gem 'rack'
 gem 'require_all'
-gem 'pg', '~> 0.18.4'
 gem 'rack-flash3'
-gem 'thin'
 gem 'bcrypt'
-gem 'shotgun'
-gem 'pry'
-gem 'tux'
+
+group :development, :production do
+  gem 'rake'
+end
+
+group :production do
+  gem 'pg', '~> 0.18.4'
+end
+
+group :development do
+  gem 'pry'
+  gem 'shotgun'
+  gem 'tux'
+end
