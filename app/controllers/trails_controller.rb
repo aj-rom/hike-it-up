@@ -12,7 +12,6 @@ class TrailsController < ApplicationController
 
   # POST: /trails
   post "/trails" do
-    binding.pry
     @trail = Trail.create(params[:trail])
     @trail.save
 
