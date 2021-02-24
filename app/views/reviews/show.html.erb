@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="sidebar">
+      <h2>Trail Information</h2>
+      <ul>
+        <li>
+          <b>Name:</b> <%= @trail.name %>
+        </li>
+        <li>
+          <b>Hours:</b> <%= @trail.hours %>
+        </li>
+        <li>
+          <b>Address:</b> <%= @trail.address %>
+        </li>
+        <li>
+          <a href="/trails/<%= @trail.id %>">More info</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="content">
+      <h2>Review Information</h2>
+      <b>Rating:</b> <%= @review.rating %>
+      <br>
+      <b>Description:</b>
+      <p><%= @review.description %></p>
+    </div>
+  </div>
+</div>
