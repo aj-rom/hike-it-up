@@ -50,6 +50,17 @@ class UsersController < ApplicationController
 
   # DELETE: /users/5/delete
   delete "/users/:id/delete" do
-    redirect "/users"
+    if logged_in?
+      @user = User.find(params[:id])
+      if @user == current_user
+        @user.destroy
+        redirect "/logout"
+      else
+        redirect "/users/#{params[:id]}"
+      end
+    else
+      redirect "/users/#{params[:id]}"
+    end
+
   end
 end

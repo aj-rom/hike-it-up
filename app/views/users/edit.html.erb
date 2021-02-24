@@ -1,27 +1,38 @@
 <div class="container">
 
-  <form action="/users/<%= @user.username %>" method="post">
-    <input type="hidden" name="_method" value="PATCH">
-    <h1>Edit Profile</h1>
-    <section class="input">
-      <label for="username">Username:</label>
-      <input type="text" id="username" value="<%= @user.username %>" name="user[username]">
-    </section>
+  <div class="content">
+    <form action="/users/<%= @user.username %>" method="post">
+      <input type="hidden" name="_method" value="PATCH">
+      <h1>Edit Profile</h1>
+      <section class="input">
+        <label for="username">Username:</label>
+        <input type="text" id="username" value="<%= @user.username %>" name="user[username]">
+      </section>
 
-    <section class="input">
-      <label for="name">Name: </label>
-      <input type="text" id="name" value="<%= @user.name %>" name="user[name]">
-    </section>
+      <section class="input">
+        <label for="name">Name: </label>
+        <input type="text" id="name" value="<%= @user.name %>" name="user[name]">
+      </section>
 
-    <section class="input">
-      <label for="status">Status:</label>
-      <input type="textarea" id="status" value="<%= @user.status %>" name="user[status]">
-    </section>
+      <section class="input">
+        <label for="status">Status:</label>
+        <input type="textarea" id="status" value="<%= @user.status %>" name="user[status]">
+      </section>
 
-    <section class="submit">
-      <input type="submit" value="Update Profile">
-    </section>
+      <section class="submit">
+        <input type="submit" value="Update Profile">
+      </section>
+    </form>
+  </div>
 
-  </form>
+
+  <div class="sidebar">
+    <h2>Delete your account</h2>
+    <form style="text-align: center" method="post" action="/users/<%= @user.id %>/delete">
+      <input type="hidden" name="_method" value="DELETE">
+      <input style="padding: 5px 5px; border-radius: 10px" type="submit" value="Delete Account">
+    </form>
+  </div>
+
 </div>
 
