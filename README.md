@@ -5,7 +5,9 @@ This project is built on [Ruby](https://www.ruby-lang.org/) using [Sinatra](http
 ### Quick Links
 - [Running The Application](#running-the-application)
 - [Architecture](#architecture-information)
+- [Contributing](#contributing)
 - [Credits](#credits)
+- [License](https://github.com/CoachLuck/hike-it-up/tree/main/LICENSE)
 
 ## Why?
 This was a great way to get used to building out a project using the [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) architecture. I wanted to explore the possibilites of using [Sinatra](http://sinatrarb.com/) to build a web application and create object relations between users and something. Taking one of my passions, hiking, and merging it with my new found knowledge I arrived at *Hike It Up*. 
@@ -76,6 +78,9 @@ To implement this I created [migrations](https://www.github.com/CoachLuck/hike-i
 - [X] Add an image to a trail
 - [X] [Add captions to images](https://www.github.com/CoachLuck/hike-it-up/tree/main/db/migrate/20210222173851_add_captions_to_images.rb)
 - [ ] Delete/Edit their reviews
+
+## Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/'coachluck'/hike-it-up. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://github.com/CoachLuck/elem_info/blob/main/CODE_OF_CONDUCT.md) code of conduct.
 
 ## Credits
 * [bcrypt](https://github.com/codahale/bcrypt-ruby) - Open-source password hashing algorithm
