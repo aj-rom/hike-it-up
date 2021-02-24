@@ -74,7 +74,7 @@ To implement this I created [migrations](https://www.github.com/CoachLuck/hike-i
 
 #### What can a user do if they log in?
 - [X] Add an image to a trail
-- [X] [Add captions to images](https://www.github.com/CoachLuck/hike-it-up/db/migrate/20210222173851_add_captions_to_images.rb)
+- [X] [Add captions to images](https://www.github.com/CoachLuck/hike-it-up/tree/main/db/migrate/20210222173851_add_captions_to_images.rb)
 - [ ] Delete/Edit their reviews
 
 ## Credits
