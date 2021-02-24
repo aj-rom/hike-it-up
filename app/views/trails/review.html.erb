@@ -1,7 +1,7 @@
 <h1><%= @trail.name %></h1>
-<h2>Leave a Review</h2>
 <form action="/trails/<%= @trail.id %>" method="post">
-  <section>
+  <h1>Leave a Review</h1>
+  <section class="input">
     <label>Rate You're Experience:
       <br>
       <% i = 1 %>
@@ -13,15 +13,13 @@
     </label>
   </section>
 
-  <br>
-
-  <section>
+  <section class="input">
     <label for="description">Leave a description:</label>
     <br>
     <textarea id="description" name="review[description]" required></textarea>
   </section>
 
-  <br>
-
-  <input type="submit" value="Submit Review">
+  <section class="submit">
+    <input type="submit" value="Submit Review">
+  </section>
 </form>
