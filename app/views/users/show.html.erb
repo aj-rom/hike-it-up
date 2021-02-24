@@ -1,6 +1,6 @@
 <div class="container">
   <div class="sidebar">
-    <h2>Info</h3>
+    <h2>Info</h2>
     <ul>
       <% if logged_in? && current_user == @user %>
       <li><a href="/users/<%= @user.username %>/edit"><b>Edit Profile</b></a></li>
