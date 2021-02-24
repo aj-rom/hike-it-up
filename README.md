@@ -64,7 +64,7 @@ Thus the structure for our objects looked like:
 * Edit trail information
 * Leave a review on a trail
 
-To implement this I created [migrations](https://www.github.com/CoachLuck/hike-it-up/db/migrate) using **Rake** to create the associated tables for the models I just created.
+To implement this I created [migrations](https://www.github.com/CoachLuck/hike-it-up/tree/main/db/migrate) using **Rake** to create the associated tables for the models I just created.
 
 ### Stretch Features
 
