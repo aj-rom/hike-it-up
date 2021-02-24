@@ -274,7 +274,7 @@
     align-self: center;
   }
 
-  form {
+  form.fancy {
     margin: 10px auto;
     border-radius: 10px;
     padding: 15px;
@@ -283,14 +283,14 @@
     align-content: center;
   }
 
-  form h1 {
+  form.fancy h1 {
     text-align: center;
     text-shadow: #3e3e3e 2px 2px;
     color: white;
     font-weight: bold;
   }
 
-  form section.input {
+  form.fancy section.input {
     display: inline-flex;
     margin-left: 5px;
     text-shadow: #3e3e3e 1px 1px;
@@ -299,13 +299,13 @@
     color: white;
   }
 
-  form section.input label {
+  form.fancy section.input label {
     font-weight: bold;
     font-size: 1.25em;
   }
 
-  form section.input input,
-  form textarea {
+  form.fancy section.input input,
+  form.fancy textarea {
     padding: 2px 0 2px 2px;
     margin-left: 5px;
     margin-right: 5px;
@@ -315,16 +315,16 @@
     border-radius: 5px;
   }
 
-  form section.input textarea {
+  form.fancy section.input textarea {
     max-width: 100%;
   }
 
-  form section.submit {
+  form.fancy section.submit {
     margin-top: 5px;
     text-align: center;
   }
 
-  form section.submit input[type="submit"] {
+  form.fancy section.submit input[type="submit"] {
     background-color: #3a7799;
     padding: 8px;
     width: 50%;
@@ -335,13 +335,13 @@
     border-radius: 8px;
   }
 
-  form section.submit input[type="submit"]:hover {
+  form.fancy section.submit input[type="submit"]:hover {
     cursor: pointer;
     background-color: #3584b0;
     border: 2px solid #414141;
   }
 
-  form #flash {
+  form.fancy #flash {
     text-align: center;
     margin: auto;
     background-color: rgba(255, 255, 255, 0.7);
@@ -385,15 +385,15 @@
     margin-bottom: 7px;
   }
 
-  form section.input label {
+  form.fancy section.input label {
     font-size: 1em;
   }
 
-  form section.input input {
+  form.fancy section.input input {
     font-size: 0.75em;
   }
 
-  form section.submit input[type="submit"] {
+  form.fancy section.submit input[type="submit"] {
     font-size: 1em;
   }
 
