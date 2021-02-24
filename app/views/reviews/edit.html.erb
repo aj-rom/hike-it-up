@@ -1,3 +1,26 @@
-<form action="">
+<form action="/reviews/<%= @review.id %>" method="post">
+  <input type="hidden" name="_method" value="PATCH">
 
+  <h1><% @review.trail.name %></h1>
+
+  <section class="input">
+    <label>Experience:
+      <br>
+      <% i = 1 %>
+      <% 5.times do %>
+        <label for="<%= i %>"><%= i %></label>
+        <input type="radio" id="<%= i %>" value="<%= i %>" name="review[rating]" <% "checked" if @review.rating == i %>>
+        <% i += 1 %>
+      <% end %>
+    </label>
+  </section>
+
+  <section class="input">
+    <label for="desc">Description:</label>
+    <textarea id="desc" name="review[description]"><%= @review.description %></textarea>
+  </section>
+
+  <section class="submit">
+    <input type="submit" value="Update Review">
+  </section>
 </form>
