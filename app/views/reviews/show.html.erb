@@ -27,13 +27,7 @@
 
       <% if logged_in? %>
         <% if current_user == @review.user %>
-
-          <h4>Options</h4>
           <a href="/reviews/<%= @review.id %>/edit">Edit this review</a>
-          <form action="/reviews/<%= @review.id %>/delete">
-            <input type="hidden" name="_method" value="DELETE">
-            <input type="submit" value="Delete Review">
-          </form>
         <% end %>
       <% end %>
     </div>

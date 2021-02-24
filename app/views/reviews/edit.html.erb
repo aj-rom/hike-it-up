@@ -24,3 +24,10 @@
     <input type="submit" value="Update Review">
   </section>
 </form>
+
+<br>
+
+<form action="/reviews/<%= @review.id %>" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Review">
+</form>
