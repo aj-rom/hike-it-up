@@ -49,7 +49,7 @@ class TrailsController < ApplicationController
 
   post "/trails/:id" do
     @trail = Trail.find(params[:id])
-    @review = Review.new(params[:review])
+    @review = Review.create(params[:review])
     @review.user = current_user
     @trail.reviews << @review
     @trail.save
@@ -70,8 +70,32 @@ class TrailsController < ApplicationController
     redirect :"/trails/#{image.trail_id}"
   end
 
-  # # DELETE: /trails/5/delete
-  # delete "/trails/:id/delete" do
-  #   redirect "/trails"
-  # end
+  get "/trails/:id/edit_images" do
+    @trail = Trail.find(params[:id])
+    if !@trail
+      erb :'trails/404'
+    else
+      if logged_in?
+        erb :"trails/edit_images"
+      else
+        redirect :'/trails/'
+      end
+    end
+  end
+
+  patch '/trails/:id/edit_images' do
+    @trail = Trail.find(params[:id])
+    @trail.trail_image_ids = params[:trail_image_ids]
+    @trail.save
+
+    redirect "/trails/#{@trail.id}"
+  end
+
+  # DELETE: /trails/5/delete
+  delete "/trails/:id/delete" do
+    # delete reviews of trail
+    # delete images of trail
+    # delete trail
+    redirect "/trails"
+  end
 end

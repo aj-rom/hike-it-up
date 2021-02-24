@@ -25,9 +25,10 @@
   </header>
 
   <% if logged_in? %>
-  <div style="text-align: center;">
-    <a href="/trails/<%=@trail.id %>/new_image">Add Image</a>
-    <a href="/trails/<%= @trail.id %>/review">Leave a Review</a>
+    <div style="text-align: center;">
+      <a href="/trails/<%=@trail.id %>/new_image">Add Image</a>
+      <a href="/trails/<%= @trail.id %>/edit_images">Edit Images</a>
+      <a href="/trails/<%= @trail.id %>/review">Leave a Review</a>
     </div>
   <% else %>
     <p><a href="/login">Log In</a> to leave a review or add images.</p>

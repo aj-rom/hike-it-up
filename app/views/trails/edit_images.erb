@@ -1,0 +1,22 @@
+<% if logged_in? %>
+  <form action="/trails/<%= @trail.id %>/edit_images" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <h1><%= @trail.name %></h1>
+    <section class="input">
+      <% @trail.trail_images.each do |i| %>
+        <label for="<%= i.id %>"> <img src="<%= i.url %>" style="max-height: 100px; max-width: 150px"></label>
+        <input type="checkbox" checked id="<%= i.id %>" name="trail_image_ids[]" value="<%= i.id %>">
+
+        <br>
+      <% end %>
+    </section>
+    <section class="submit">
+      <input type="submit" value="Update Images">
+    </section>
+  </form>
+<% else %>
+  <div id="flash" class="error">
+    <h3>You must be logged in to do this!</h3>
+    <a href="/login"></a>
+  </div>
+<% end %>
