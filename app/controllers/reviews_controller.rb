@@ -13,6 +13,7 @@ class ReviewsController < ApplicationController
   get '/reviews/:id' do
     @review = Review.find(params[:id])
     if @review
+      @trail = @review.trail
       erb :'/reviews/show.html'
     else
       erb :'/reviews/404.html'
@@ -28,10 +29,10 @@ class ReviewsController < ApplicationController
     end
   end
 
-  post '/reviews/:id' do
+  patch '/reviews/:id' do
     @review = Review.find(params[:id])
     @review.update(params[:review])
 
-    redirect '/reviews/:id'
+    redirect "/reviews/#{@review.id}"
   end
 end
