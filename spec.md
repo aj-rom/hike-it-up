@@ -1,16 +1,16 @@
 # Specifications for the Sinatra Assessment
 
 Specs:
-- [x] Use Sinatra to build the app
+- [x] Use Sinatra to build the app - Hike It Up
 - [X] Use ActiveRecord for storing information in a database
-- [X] Include more than one model class (e.g. User, Post, Category)
-- [X] Include at least one has_many relationship on your User model (e.g. User has_many Posts)
-- [X] Include at least one belongs_to relationship on another model (e.g. Post belongs_to User)
-- [X] Include user accounts with unique login attribute (username or email)
-- [ ] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
-- [X] Ensure that users can't modify content created by other users
-- [X] Include user input validations
-- [X] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
+- [X] Include more than one model class (e.g. User, Trail, TrailImage, Review)
+- [X] Include at least one has_many relationship on your User model - Explained in readme
+- [X] Include at least one belongs_to relationship on another model - Exmplained in readme
+- [X] Include user accounts with unique login attribute (username or email) - Username is unique
+- [X] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
+- [X] Ensure that users can't modify content created by other users - Can't modify other users profiles/reviews
+- [X] Include user input validations - Can't input invalid image links
+- [X] BONUS - not required - Display validation failures to user with error message (users must be logged in to add trails)
 - [X] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
 Confirm
