@@ -1,20 +1,25 @@
+<h2>All Your Reviews</h2>
 <table class="reviews">
   <tr>
     <th>Trail Name</th>
     <th>Rating</th>
     <th>Description</th>
+    <th>View</th>
     <th>Edit</th>
   </tr>
   <% @reviews.each do |r| %>
-  <tr>
-    <td>
-      <a href="/trails/<%= r.trail.id %>"><%= r.trail.name %></a>
-    </td>
-    <td><%= r.rating %></td>
-    <td><%= r.description %></td>
-    <td>
-      <a href="/reviews/<%= r.id %>/edit">Edit</a>
-    </td>
-  </tr>
+    <tr>
+      <td>
+        <a href="/trails/<%= r.trail.id %>"><%= r.trail.name %></a>
+      </td>
+      <td><%= r.rating %></td>
+      <td><%= r.description %></td>
+      <td>
+        <a href="/reviews/<%= r.id %>">View</a>
+      </td>
+      <td>
+        <a href="/reviews/<%= r.id %>/edit">Edit</a>
+      </td>
+    </tr>
   <% end %>
 </table>
