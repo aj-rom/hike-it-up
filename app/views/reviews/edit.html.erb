@@ -9,7 +9,7 @@
       <% i = 1 %>
       <% 5.times do %>
         <label for="<%= i %>"><%= i %></label>
-        <input type="radio" id="<%= i %>" value="<%= i %>" name="review[rating]" <% "checked" if @review.rating == i %>>
+        <input type="radio" id="<%= i %>" value="<%= i %>" name="review[rating]" <%= "checked" if @review.rating == i %>>
         <% i += 1 %>
       <% end %>
     </label>
