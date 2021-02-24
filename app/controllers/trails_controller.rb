@@ -7,7 +7,11 @@ class TrailsController < ApplicationController
 
   # GET: /trails/new
   get "/trails/new" do
-    erb :"/trails/new.html"
+    if logged_in?
+      erb :"/trails/new.html"
+    else
+      redirect "/trails"
+    end
   end
 
   # POST: /trails
@@ -30,7 +34,12 @@ class TrailsController < ApplicationController
   # GET: /trails/5/edit
   get "/trails/:id/edit" do
     @trail = Trail.find(params[:id])
-    erb :"/trails/edit.html"
+
+    if logged_in?
+      erb :"/trails/edit.html"
+    else
+      redirect "/trails/#{@trail.id}"
+    end
   end
 
   # PATCH: /trails/5
