@@ -27,9 +27,8 @@ class UsersController < ApplicationController
   # GET: /users/<user>/edit
   get "/users/:username/edit" do
     @user = User.find_by(username: params[:username])
-    cu = current_user
     if @user
-      if @user == cu
+      if logged_in? && @user == current_user
         erb :"/users/edit.html"
       else
         redirect :"/users/#{@user.username}"
