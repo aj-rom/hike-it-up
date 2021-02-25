@@ -5,6 +5,12 @@ class UsersController < ApplicationController
     erb :"/users/index.html"
   end
 
+  get "/profile" do
+    redirect '/login' unless logged_in?
+    @user = current_user
+    redirect "/users/#{@user.username}"
+  end
+
   # POST: /users
   post "/users" do
     redirect "/users"
@@ -26,17 +32,9 @@ class UsersController < ApplicationController
 
   # GET: /users/<user>/edit
   get "/users/:username/edit" do
-    @user = User.find_by(username: params[:username])
-    if @user
-      if logged_in? && @user == current_user
-        erb :"/users/edit.html"
-      else
-        redirect :"/users/#{@user.username}"
-      end
-    else
-      erb :"/users/404.html"
-    end
-
+    redirect '/login' unless logged_in?
+    @user = current_user
+    erb :'/users/edit.html'
   end
 
   # PATCH: /users/<username>

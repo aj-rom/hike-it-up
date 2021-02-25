@@ -1,13 +1,10 @@
 class ReviewsController < ApplicationController
 
   get '/reviews' do
-    if logged_in?
-      @reviews = current_user.reviews
+    redirect '/login' unless logged_in?
 
-      erb :'reviews/index.html'
-    else
-      redirect "/login"
-    end
+    @reviews = current_user.reviews
+    erb :'reviews/index.html'
   end
 
   get '/reviews/:id' do
@@ -21,6 +18,8 @@ class ReviewsController < ApplicationController
   end
 
   get '/reviews/:id/edit' do
+    redirect "/login" unless logged_in?
+
     @review = Review.find(params[:id])
     if !@review || @review.user != current_user
       redirect "/reviews"

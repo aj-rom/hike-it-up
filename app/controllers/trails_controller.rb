@@ -7,11 +7,9 @@ class TrailsController < ApplicationController
 
   # GET: /trails/new
   get "/trails/new" do
-    if logged_in?
-      erb :"/trails/new.html"
-    else
-      redirect "/trails"
-    end
+    redirect '/login' unless logged_in?
+
+    erb :"/trails/new.html"
   end
 
   # POST: /trails
@@ -33,13 +31,10 @@ class TrailsController < ApplicationController
 
   # GET: /trails/5/edit
   get "/trails/:id/edit" do
+    redirect '/login' unless logged_in?
     @trail = Trail.find(params[:id])
 
-    if logged_in?
-      erb :"/trails/edit.html"
-    else
-      redirect "/trails/#{@trail.id}"
-    end
+    erb :"/trails/edit.html"
   end
 
   # PATCH: /trails/5
@@ -51,6 +46,7 @@ class TrailsController < ApplicationController
   end
 
   get "/trails/:id/review" do
+    redirect '/login' unless logged_in?
     @trail = Trail.find(params[:id])
 
     erb :"/trails/review.html"
@@ -67,8 +63,9 @@ class TrailsController < ApplicationController
   end
 
   get "/trails/:id/new_image" do
-    @trail = Trail.find(params[:id])
+    redirect '/login' unless logged_in?
 
+    @trail = Trail.find(params[:id])
     erb :"/trails/new_image.html"
   end
 
@@ -80,15 +77,13 @@ class TrailsController < ApplicationController
   end
 
   get "/trails/:id/edit_images" do
+    redirect '/login' unless logged_in?
+
     @trail = Trail.find(params[:id])
-    if !@trail
-      erb :'trails/404'
+    if @trail
+      erb :"trails/edit_images"
     else
-      if logged_in?
-        erb :"trails/edit_images"
-      else
-        redirect :'/trails/'
-      end
+      erb :'trails/404'
     end
   end
 
