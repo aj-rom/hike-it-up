@@ -14,9 +14,6 @@ gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 
 group :development, :production do
   gem 'pg', '~> 1.2', '>= 1.2.3'
-end
-
-group :production do
   gem 'puma'
 end
 
