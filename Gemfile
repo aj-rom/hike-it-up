@@ -2,7 +2,7 @@
 
 source 'http://rubygems.org'
 
-ruby "2.6.3"
+ruby "3.0.0"
 
 gem 'activerecord', '~> 6.1', '>= 6.1.3', :require => 'active_record'
 gem 'bcrypt'
