@@ -2,7 +2,7 @@
 
 source 'http://rubygems.org'
 
-ruby "3.0.0"
+ruby "2.6.3"
 
 gem 'activerecord', '~> 6.1', '>= 6.1.3', :require => 'active_record'
 gem 'bcrypt'
@@ -14,10 +14,14 @@ gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 
 group :development, :production do
   gem 'pg', '~> 1.2', '>= 1.2.3'
+end
+
+group :production do
   gem 'puma'
 end
 
 group :development do
+  gem 'thin'
+  gem 'shotgun'
   gem 'pry'
-  gem 'tux'
 end
