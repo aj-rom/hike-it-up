@@ -18,7 +18,8 @@ group :production do
 end
 
 group :development do
+  # uncomment the line below for development using shotgun
   #gem 'thin'
-  gem 'shotgun'
+  # gem 'shotgun'
   gem 'pry'
 end
