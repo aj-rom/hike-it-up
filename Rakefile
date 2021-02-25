@@ -11,7 +11,7 @@ namespace :production do
   env_name = "production"
   desc "Seeds the #{env_name} database"
   task :seed do
-    exec("rake db:seed APP_ENV=production")
+    exec("rake db:seed APP_ENV=#{env_name}")
   end
 
   desc "Start the #{env_name} server"
@@ -22,9 +22,7 @@ namespace :production do
 end
 
 namespace :dev do
-  env_name = "development"
-
-  desc "Start the #{env_name} server"
+  desc 'Start the development server'
   task :start do
     exec("shotgun")
   end
