@@ -9,6 +9,10 @@ end
 
 namespace :production do
   env_name = "production"
+  desc "Seeds the #{env_name} database"
+  task :seed do
+    exec("rake db:seed APP_ENV=production")
+  end
 
   desc "Start the #{env_name} server"
   task :start do
@@ -22,7 +26,7 @@ namespace :dev do
 
   desc "Start the #{env_name} server"
   task :start do
-    exec("puma -e #{env_name} -b tcp://127.0.0.1:9393")
+    exec("shotgun")
   end
 
 end
