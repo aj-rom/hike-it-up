@@ -11,8 +11,11 @@ gem 'rake'
 gem 'require_all'
 gem 'sinatra'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
-gem 'puma'
 gem 'pg', '~> 1.2', '>= 1.2.3'
+
+group :production do
+  gem 'puma', '~> 3.4'
+end
 
 group :development do
   gem 'thin'

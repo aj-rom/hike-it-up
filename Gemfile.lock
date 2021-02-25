@@ -23,13 +23,11 @@ GEM
     minitest (5.14.3)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
-    nio4r (2.5.5)
     pg (1.2.3)
     pry (0.14.0)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    puma (5.2.1)
-      nio4r (~> 2.0)
+    puma (3.12.6)
     rack (2.2.3)
     rack-flash3 (1.0.5)
       rack
@@ -66,7 +64,7 @@ DEPENDENCIES
   bcrypt
   pg (~> 1.2, >= 1.2.3)
   pry
-  puma
+  puma (~> 3.4)
   rack-flash3
   rake
   require_all
