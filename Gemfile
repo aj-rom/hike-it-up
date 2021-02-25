@@ -18,7 +18,7 @@ group :production do
 end
 
 group :development do
-  gem 'thin'
+  #gem 'thin'
   gem 'shotgun'
   gem 'pry'
 end
