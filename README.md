@@ -32,7 +32,7 @@ To Run this project locally:
 * [Stretch Features](#stretch-features )
 
 ### Most Viable Product Structure
-Thinking of the base structure I went ahead and created models for `users`, `trails`, `reviews`, and `trail images`. Although only needed views for my `users` and `trails` models, as the others were children of these models. 
+Thinking of the base structure I went ahead and created models for `users`, `trails`, `reviews`, and `trail images`. Although only needed views for my `users` and `trails` models, as the others were children of these models. I ended up creating a personal `reviews` route for logged in users so they can easily manage their reviews.
 
 Thus the structure for our objects looked like:
 ```ruby
@@ -77,7 +77,7 @@ To implement this I created [migrations](https://www.github.com/CoachLuck/hike-i
 #### What can a user do if they log in?
 - [X] Add an image to a trail
 - [X] [Add captions to images](https://www.github.com/CoachLuck/hike-it-up/tree/main/db/migrate/20210222173851_add_captions_to_images.rb)
-- [ ] Delete/Edit their reviews
+- [X] Delete/Edit their reviews
 
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/'coachluck'/hike-it-up. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://github.com/CoachLuck/elem_info/blob/main/CODE_OF_CONDUCT.md) code of conduct.
