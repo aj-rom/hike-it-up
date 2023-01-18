@@ -4,7 +4,7 @@ source 'http://rubygems.org'
 
 ruby "3.0.0"
 
-gem 'activerecord', '~> 6.1', '>= 6.1.3', :require => 'active_record'
+gem 'activerecord', '~> 6.1', :require => 'active_record'
 gem 'bcrypt'
 gem 'rack-flash3'
 gem 'rake'
